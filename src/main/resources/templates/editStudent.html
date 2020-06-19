@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit Student</title>
 </head>
 <body>
+
+<form th:action="@{/students/action/editStudent}" method="POST">
+
+
+
+
+    Name:          <input th:value="${student.name}" type="text" name="name"> <br>
+    Subject Area:   <input th:value="${student.subjectArea}" type="text" name="subjectArea"><br>
+    E-Mail:         <input th:value="${student.email}" type="text" name="email"> <br>
+    Birth Date:     <input th:value="${student.birthDate}" type="text" name="birthdate"><br>
+    <button type="submit" name="id" th:value="${student.id}">SAVE</button>
+
+
+</form>
+
 
 </body>
 </html>

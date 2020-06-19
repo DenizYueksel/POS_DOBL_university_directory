@@ -22,13 +22,7 @@ public class StudentsController {
 
     }
 
-    @GetMapping("/students/page/student")
-    public  String getStudentByID(Model model, @RequestParam(name="id") Long id){
 
-        model.addAttribute("student",studentService.getStudentByID(id));
-        return "student";
-
-    }
 
     @GetMapping("/students/page/addStudent")
     public String getAddStudentHTML(){
@@ -36,6 +30,14 @@ public class StudentsController {
 
         return "addStudent";
 
+
+    }
+
+    @PostMapping("/students/page/editStudent")
+    public  String getEditStudentHtmlByID(Model model, @RequestParam(name="id") Long id){
+
+        model.addAttribute("student",studentService.getStudentByID(id));
+        return "editStudent";
 
     }
 
