@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>TitleStudents</title>
+    <title>Students</title>
 </head>
 <body>
 
@@ -17,12 +17,12 @@
         <td th:text="${Student?.email}"> E-Mail </td>
         <td th:text="${Student?.birthDate}"> Birth Date </td>
         <td>
-            <form th:action="@{/student/edit/${Student?.id}" method="POST"><button type="submit">edit</button></form>
-            <form th:action="@{/students/${Student?.id}" method="DELETE"><button type="submit">delete</button></form>
+            <form th:action="@{/students/page/editStudent}" method="POST"><button name="id" th:value="${Student?.id}" type="submit">edit</button></form>
+            <form th:action="@{/students/action/deleteStudent}" method="POST"><button name="id" th:value="${Student?.id}" type="submit">delete</button></form>
         </td>
     </tr>
 </table>
-<form th:action="@{/student/create}" method="GET"><button type="submit">add</button></form>
+<form th:action="@{/student/addStudent}" method="GET"><button type="submit">add</button></form>
 
 </body>
 </html>

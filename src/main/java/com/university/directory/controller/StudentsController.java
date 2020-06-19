@@ -22,15 +22,24 @@ public class StudentsController {
 
     }
 
-    @GetMapping("/students/{id}")
-    public  String getStudentByID(Model model, @PathVariable Long id){
+    @GetMapping("/students/page/student")
+    public  String getStudentByID(Model model, @RequestParam(name="id") Long id){
 
         model.addAttribute("student",studentService.getStudentByID(id));
         return "student";
 
     }
 
-    @PostMapping("/students")
+    @GetMapping("/students/page/addStudent")
+    public String getAddStudentHTML(){
+
+
+        return "addStudent";
+
+
+    }
+
+    @PostMapping("/students/action/addStudent")
     public String addStudent(@RequestParam(name = "name" )String name, @RequestParam(name = "email") String email, @RequestParam(name = "subjectArea")String subjectArea, @RequestParam(name="birthdate")String birthdate){
 
         studentService.createStudent(name,subjectArea,email,birthdate);
@@ -39,8 +48,8 @@ public class StudentsController {
         return "redirect:/students";
     }
 
-    @PostMapping("/students/{id}")
-    public String editStudent(@PathVariable Long id, @RequestParam(name = "name" )String name, @RequestParam(name = "email") String email, @RequestParam(name = "subjectArea")String subjectArea, @RequestParam(name="birthdate")String birthdate){
+    @PostMapping("/students/action/editStudent")
+    public String editStudent(@RequestParam(name = "id") Long id, @RequestParam(name = "name" )String name, @RequestParam(name = "email") String email, @RequestParam(name = "subjectArea")String subjectArea, @RequestParam(name="birthdate")String birthdate){
 
         studentService.editStudent(id,name,subjectArea,email,birthdate);
 
@@ -48,8 +57,8 @@ public class StudentsController {
         return "redirect:/students";
     }
 
-    @DeleteMapping("/students/{id}")
-    public String deleteStudent(@PathVariable Long id){
+    @PostMapping("/students/action/deleteStudent")
+    public String deleteStudent(@RequestParam(name = "id") Long id){
 
         studentService.deleteStudentByID(id);
 
