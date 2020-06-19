@@ -12,7 +12,7 @@ public class Student {
     String subjectArea;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    Long id;
     String email;
     String birthDate;
 
@@ -37,11 +37,11 @@ public class Student {
         this.subjectArea = subjectArea;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
