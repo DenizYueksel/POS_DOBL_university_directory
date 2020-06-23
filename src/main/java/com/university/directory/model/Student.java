@@ -11,7 +11,7 @@ public class Student {
     String name;
     String subjectArea;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //das IDENTITY steht dafür das das Standard AutoIncrement der Tabelle übernommen wird.
     Long id;
     String email;
     String birthDate;
